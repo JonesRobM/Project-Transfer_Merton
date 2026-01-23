@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(superpowers:brainstorming)",
+      "WebFetch(domain:foodfoundation.org.uk)",
+      "WebFetch(domain:cdn-wp.datapress.cloud)",
+      "WebFetch(domain:data.london.gov.uk)",
+      "WebSearch",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd systemic latency analysis design document\n\nDocuments the approach for modeling the transfer function between\nLondon Economic Fairness indicators and Food Foundation food\ninsecurity data to identify intervention windows for policy.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(.venvScriptspython.exe -c \"\nimport requests\nfrom pathlib import Path\n\nurl = ''https://cdn-wp.datapress.cloud/london/20250618131339/Indicator-matrix-data-sheets-Nov-2020.xlsx''\ndest = Path\\(''data/raw/economic_fairness/indicator_matrix_nov_2020.xlsx''\\)\ndest.parent.mkdir\\(parents=True, exist_ok=True\\)\n\nprint\\(f''Downloading from: {url}''\\)\nresponse = requests.get\\(url, stream=True\\)\nresponse.raise_for_status\\(\\)\n\nwith open\\(dest, ''wb''\\) as f:\n    for chunk in response.iter_content\\(chunk_size=8192\\):\n        f.write\\(chunk\\)\n\nprint\\(f''Saved to: {dest}''\\)\nprint\\(f''File size: {dest.stat\\(\\).st_size / 1024:.1f} KB''\\)\n\")",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "WebFetch(domain:www.gov.uk)"
+    ]
+  }
+}

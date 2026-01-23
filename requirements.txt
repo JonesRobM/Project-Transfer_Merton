@@ -1,0 +1,10 @@
+polars
+scipy
+prophet
+pymc
+requests
+notebook
+matplotlib
+arviz
+openpyxl
+pandas
