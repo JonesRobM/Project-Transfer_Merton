@@ -1,0 +1,11 @@
+{
+  "indicator": "energy_price",
+  "target": "food_insecurity",
+  "optimal_lag_months": 3,
+  "r_squared": 0.8265062340870044,
+  "bootstrap_mean": 0.154,
+  "bootstrap_median": 0.0,
+  "bootstrap_std": 0.5884590045194312,
+  "ci_95_low": 0.0,
+  "ci_95_high": 2.0
+}
