@@ -52,6 +52,22 @@ Bootstrap resampling (n=1000) was used to quantify uncertainty in the lag estima
 - **95% CI:** 0-3 months
 - The relationship is strong across all lags, indicating immediate pressure with peak impact at 3 months
 
+### 4. Kernel Fitting
+
+We model the transfer function between energy prices and food insecurity using parameterized kernels. Three kernel shapes were tested:
+
+| Kernel | Description | R² | Key Parameter |
+|--------|-------------|-----|---------------|
+| Delta | Instantaneous effect at fixed lag | 0.819 | lag = 3 months |
+| Exponential | Immediate onset, gradual decay | 0.799 | decay = 0.26 |
+| **Gamma** | Delayed peak, then decay | **0.822** | peak = 2.5 months |
+
+![Kernel Shapes](assets/kernel_shapes.png)
+
+The **Gamma kernel** provides the best fit, with a peak response at 2.5 months. This confirms that food insecurity does not respond immediately to price shocks, but builds over 2-3 months as household budgets deplete.
+
+![Kernel Predictions](assets/kernel_predictions.png)
+
 ---
 
 ## Results
@@ -112,10 +128,21 @@ Project-Transfer_Merton/
 │   ├── 02_exploratory_viz.ipynb
 │   ├── 03_correlation_study.ipynb
 │   ├── 04_lag_estimation.ipynb
+│   ├── 05_kernel_fitting.ipynb
 │   └── 06_synthesis.ipynb
+├── src/
+│   ├── api/                  # Data source connectors
+│   │   ├── nomis.py          # Claimant Count API
+│   │   └── octopus.py        # Energy price API
+│   ├── models/               # Vulnerability kernel implementations
+│   │   ├── kernels.py        # Delta, Exponential, Gamma kernels
+│   │   └── bayesian.py       # PyMC Bayesian inference
+│   └── dashboard/            # Monitoring system
+│       └── monitor.py        # Price cap alerts
 ├── outputs/                  # Generated figures and results
 └── docs/
-    └── plans/                # Design documents
+    ├── plans/                # Design documents
+    └── policy_report.md      # Report for councillors
 ```
 
 ---
