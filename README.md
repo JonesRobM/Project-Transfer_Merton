@@ -116,7 +116,7 @@ Track Ofgem price cap announcements (quarterly). When the cap increases >10%, tr
 Project-Transfer_Merton/
 ├── README.md
 ├── CLAUDE.md                 # AI assistant instructions
-├── requirements.txt
+├── pyproject.toml            # Dependencies (uv.lock pins them)
 ├── assets/                   # Figures for documentation
 ├── data/
 │   ├── raw/                  # Immutable source files
